@@ -26,7 +26,7 @@ export const navbarParams = {
     ticketButton: {
         text: 'Tickets',
         props: {
-            variant: "link",
+            variant: "text",
         }
     }
 }
