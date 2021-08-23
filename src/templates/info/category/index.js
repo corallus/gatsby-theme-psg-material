@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import Context from '../../../components/Events/Context';
+import Context from 'gatsby-theme-psg/src/components/Events/Context';
 import {
     Grid,
 } from "@material-ui/core";

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import Context from '../Events/Context'
+import Context from 'gatsby-theme-psg/src/components/Events/Context'
 import Stage from '../Stage'
 import {lineupParams} from "../../params";
 import {Box, Tab, Tabs} from "@material-ui/core";

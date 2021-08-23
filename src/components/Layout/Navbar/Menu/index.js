@@ -1,6 +1,6 @@
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import React, {useContext} from "react";
-import Context from "../../../Events/Context";
+import Context from "gatsby-theme-psg/src/components/Events/Context";
 import {List, ListItem, ListItemText} from "@material-ui/core";
 import {Link} from "gatsby";
 import useStyles from "./style";

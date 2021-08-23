@@ -6,7 +6,7 @@ import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import CookieConsent from "react-cookie-consent"
 import {globalHistory} from "@reach/router"
 import NewsFlash from "../NewsFlash";
-import EventMeta from "../EventMeta";
+import EventMeta from "gatsby-theme-psg/src/components/EventMeta";
 import useStyles from "./style";
 
 const Layout = ({title: pageTitle = null, description, template = null, children}) => {

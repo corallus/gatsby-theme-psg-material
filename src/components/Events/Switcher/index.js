@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import Context from '../Context';
+import Context from 'gatsby-theme-psg/src/components/Events/Context';
 import {Button, ButtonGroup, Hidden} from "@material-ui/core";
 
 export default () => {

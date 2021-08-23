@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import Button from "./button";
-import Context from '../../../../components/Events/Context'
+import Context from 'gatsby-theme-psg/src/components/Events/Context'
 import {Link} from "gatsby";
 import {summaryParams} from "../../../../params";
 import EventSwitcher from "../../../../components/Events/Switcher";

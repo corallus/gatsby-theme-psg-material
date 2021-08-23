@@ -5,7 +5,7 @@ import {Slide} from "../../../shared/slide";
 import Ticket from "../../../components/Ticket";
 import Section from "../../../components/Section";
 import {ticketParams} from "../../../params";
-import Context from "../../../components/Events/Context";
+import Context from "gatsby-theme-psg/src/components/Events/Context";
 import useStyles from "./style";
 
 const TicketsHome = (props) => {
@@ -35,7 +35,7 @@ const TicketsHome = (props) => {
             <Grid
                 container
                 spacing={3}
-                justify="center"
+                justifyContent="center"
                 alignItems="stretch"
             >
                 {items.map((ticket, j) => (

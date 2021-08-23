@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import Context from '../../../Events/Context';
+import Context from 'gatsby-theme-psg/src/components/Events/Context';
 import {Button, Menu, MenuItem } from "@material-ui/core";
 import {ArrowDropDown} from "@material-ui/icons";
 

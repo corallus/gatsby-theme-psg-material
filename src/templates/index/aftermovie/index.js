@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react'
 import {Dialog, Typography} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import {PlayCircleOutline} from "@material-ui/icons";
-import Context from "../../../components/Events/Context";
+import Context from "gatsby-theme-psg/src/components/Events/Context";
 import useStyles from "./style";
 import Section from "../../../components/Section";
 

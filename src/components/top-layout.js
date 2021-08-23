@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/styles';
 
 import Viewport from './viewport';
-import {EventProvider} from "./Events/Context";
+import {EventProvider} from "gatsby-theme-psg/src/components/Events/Context";
 
 export default function TopLayout({ children, theme }) {
     return (
