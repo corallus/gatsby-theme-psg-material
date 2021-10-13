@@ -1,15 +1,7 @@
 import React from 'react'
-import {Badge, Chip, createStyles, Grid, makeStyles, Typography} from "@material-ui/core";
+import {Badge, Chip, Grid, Typography} from "@mui/material";
+import useStyles from './style'
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        root: {
-        },
-        decimals: {
-            fontSize: '50%'
-        },
-    }),
-);
 const Price = ({ticket, earlyBird}) => {
     const classes = useStyles();
 
@@ -33,8 +25,8 @@ const Price = ({ticket, earlyBird}) => {
             }
             {ticket.price &&
             <Grid item>
-                <Typography variant={'h2'}>
-                    €{priceSplit[0]},<span className={classes.decimals}>{priceSplit[1]}</span>
+                <Typography variant={'h2'} className={classes.price}>
+                    €{priceSplit[0]}<span className={classes.decimals}>{priceSplit[1]}</span>
                 </Typography>
             </Grid>
             }

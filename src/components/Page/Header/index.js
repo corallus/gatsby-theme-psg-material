@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Container, Typography} from "@material-ui/core";
+import {Box, Container, Typography} from "@mui/material";
 import useStyles from "./style";
 
 export const Header = ({markdown}) => {

@@ -2,8 +2,8 @@ import React, {useContext} from 'react'
 import Context from 'gatsby-theme-psg/src/components/Events/Context'
 import Stage from '../Stage'
 import {lineupParams} from "../../params";
-import {Box, Tab, Tabs} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {Box, Tab, Tabs} from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;

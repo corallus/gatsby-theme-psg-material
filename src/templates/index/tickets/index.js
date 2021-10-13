@@ -1,12 +1,15 @@
 import React, {useContext, useEffect, useState} from 'react'
 import moment from "moment";
-import {Grid, withWidth} from "@material-ui/core";
+import { Grid } from "@mui/material";
 import {Slide} from "../../../shared/slide";
 import Ticket from "../../../components/Ticket";
 import Section from "../../../components/Section";
 import {ticketParams} from "../../../params";
 import Context from "gatsby-theme-psg/src/components/Events/Context";
 import useStyles from "./style";
+
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) => <WrappedComponent {...props} width="xs" />;
 
 const TicketsHome = (props) => {
     const classes = useStyles()

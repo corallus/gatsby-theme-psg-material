@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import Context from 'gatsby-theme-psg/src/components/Events/Context';
-import {Button, Menu, MenuItem } from "@material-ui/core";
-import {ArrowDropDown} from "@material-ui/icons";
+import {Button, Menu, MenuItem } from "@mui/material";
+import {ArrowDropDown} from "@mui/icons-material";
 
 export default () => {
     const [anchorEl, setAnchorEl] = React.useState(null);

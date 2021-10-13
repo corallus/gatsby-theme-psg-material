@@ -6,15 +6,10 @@ import axios from 'axios'
 import FieldWrapper from './FieldWrapper'
 import { Helmet } from 'react-helmet';
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
-import {
-    Box,
-    Button,
-    Checkbox,
-    createStyles, FormControl,
-    FormControlLabel,
-    FormHelperText,
-    makeStyles,
-} from "@material-ui/core";
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText } from "@mui/material";
+
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) =>
     createStyles({

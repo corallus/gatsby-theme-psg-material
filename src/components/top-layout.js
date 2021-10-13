@@ -1,14 +1,14 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
 import Viewport from './viewport';
 import {EventProvider} from "gatsby-theme-psg/src/components/Events/Context";
 
 export default function TopLayout({ children, theme }) {
-    return (
-        <>
-            <Viewport />
+    return <>
+        <Viewport />
+        <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline />
@@ -16,6 +16,6 @@ export default function TopLayout({ children, theme }) {
                     {children}
                 </EventProvider>
             </ThemeProvider>
-        </>
-    );
+        </StyledEngineProvider>
+    </>;
 }

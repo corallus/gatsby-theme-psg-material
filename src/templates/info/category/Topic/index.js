@@ -1,8 +1,11 @@
 import React from 'react';
 import {graphql} from 'gatsby'
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {AccordionDetails, createStyles, makeStyles, Typography, withStyles, Accordion} from "@material-ui/core";
-import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { AccordionDetails, Typography, Accordion } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
 
 const AccordionSummary = withStyles({
     root: {

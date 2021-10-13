@@ -1,6 +1,6 @@
 import React from 'react'
 import {graphql} from "gatsby";
-import {Box} from "@material-ui/core";
+import {Box} from "@mui/material";
 import useStyles from "../../components/Page/style"
 import TicketsHome from "./tickets";
 import LineupHome from "./lineup";

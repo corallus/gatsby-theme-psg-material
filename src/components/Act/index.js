@@ -2,7 +2,7 @@ import React from 'react'
 import { GatsbyImage } from "gatsby-plugin-image";
 import {graphql} from 'gatsby'
 import {lineupParams} from "../../params";
-import {Card, CardContent, CardMedia, Typography} from "@material-ui/core";
+import {Card, CardContent, CardMedia, Typography} from "@mui/material";
 import useStyles from "./style";
 
 const Act = ({act}) => {

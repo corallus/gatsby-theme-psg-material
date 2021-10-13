@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container} from "@material-ui/core";
+import {Container} from "@mui/material";
 import useStyles from './style'
 import Menu from "./Menu";
 import SocialMenu from "../Navbar/SocialMenu";

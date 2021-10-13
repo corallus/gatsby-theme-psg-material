@@ -7,7 +7,20 @@ import CookieConsent from "react-cookie-consent"
 import {globalHistory} from "@reach/router"
 import NewsFlash from "../NewsFlash";
 import EventMeta from "gatsby-theme-psg/src/components/EventMeta";
-import useStyles from "./style";
+import makeStyles from "@mui/styles/makeStyles";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh'
+    },
+    appBarSpacer: theme.mixins.toolbar,
+    footer: {
+        marginTop: 'auto',
+    }
+}));
 
 const Layout = ({title: pageTitle = null, description, template = null, children}) => {
     const classes = useStyles();

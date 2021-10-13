@@ -1,4 +1,4 @@
-import {ButtonBase, Card, CardContent, CardMedia, Typography} from "@material-ui/core";
+import {ButtonBase, Card, CardContent, CardMedia, Typography} from "@mui/material";
 import {GatsbyImage} from "gatsby-plugin-image";
 import React from "react";
 import useStyles from './style'

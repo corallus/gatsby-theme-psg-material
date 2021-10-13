@@ -1,9 +1,12 @@
 import React from 'react'
-import {Card, CardMedia, Grid, withWidth} from "@material-ui/core";
+import { Card, CardMedia, Grid } from "@mui/material";
 import {GatsbyImage} from "gatsby-plugin-image";
 import {Slide} from "../../../shared/slide";
 import Section from "../../../components/Section";
 import useStyles from "./style";
+
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) => <WrappedComponent {...props} width="xs" />;
 
 const Gallery = ({items, ...props}) => {
     const classes = useStyles()

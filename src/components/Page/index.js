@@ -1,6 +1,6 @@
 import React from 'react'
 import {Header} from "./Header";
-import {Box} from "@material-ui/core";
+import {Box} from "@mui/material";
 import useStyles from "./style";
 
 export const Page = ({markdown, children}) => {

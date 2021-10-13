@@ -4,12 +4,13 @@ import makeStyles from '@mui/styles/makeStyles';
 const useStyles = makeStyles((theme) =>
     createStyles({
         root: {
-            position: 'relative'
         },
-        content: {
-            position: 'absolute'
+        decimals: {
+            fontSize: '50%'
+        },
+        price: {
         }
-    })
-)
+    }),
+);
 
 export default useStyles

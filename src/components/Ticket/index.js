@@ -7,7 +7,7 @@ import {
     CardActions,
     CardContent,
     CardHeader,
-} from "@material-ui/core";
+} from "@mui/material";
 import useStyles from "./style";
 import Button from "./Button";
 

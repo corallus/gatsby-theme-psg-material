@@ -4,7 +4,7 @@ import Context from 'gatsby-theme-psg/src/components/Events/Context'
 import {Link} from "gatsby";
 import {summaryParams} from "../../../../params";
 import EventSwitcher from "../../../../components/Events/Switcher";
-import {Box, Container, Typography} from "@material-ui/core";
+import {Box, Container, Typography} from "@mui/material";
 import useStyles from "./style";
 
 
@@ -18,10 +18,10 @@ const Summary = ({showText=false, children}) => {
                 <EventSwitcher/>
             </div>
             <Box className={classes.dateLocation}>
-                <Typography component={'span'} className={classes.location} {...summaryParams.locationProps}>
+                <Typography className={classes.location} {...summaryParams.locationProps}>
                     {state.event.frontmatter.location}
                 </Typography>{' '}
-                <Typography component={'span'} className={classes.date} {...summaryParams.dateProps}>
+                <Typography className={classes.date} {...summaryParams.dateProps}>
                     {state.event.frontmatter.dateMedium}
                 </Typography>
             </Box>

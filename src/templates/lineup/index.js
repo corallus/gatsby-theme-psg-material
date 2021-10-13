@@ -2,7 +2,7 @@ import React from 'react'
 import Lineup from "../../components/Lineup";
 import {graphql} from "gatsby";
 import {Page} from "../../components/Page";
-import {Container} from "@material-ui/core";
+import {Container} from "@mui/material";
 
 const LineupPageTemplate = ({data}) => {
     return (

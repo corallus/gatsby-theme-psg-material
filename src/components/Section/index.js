@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'gatsby'
-import {Box, Container, Typography} from "@material-ui/core";
+import {Box, Container, Typography} from "@mui/material";
 import useStyles from "./style";
 import Button from "./Button";
 

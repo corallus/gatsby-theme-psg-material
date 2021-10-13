@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from "gatsby";
 import {Page} from "../../components/Page";
-import {Container, Grid} from "@material-ui/core";
+import {Container, Grid} from "@mui/material";
 import Gallery from "./item";
 
 const GalleryPageTemplate = ({data}) => {

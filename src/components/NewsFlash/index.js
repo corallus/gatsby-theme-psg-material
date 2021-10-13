@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {graphql, useStaticQuery} from "gatsby";
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@mui/material";
 
 const NewsFlash = () => {
     const [modalShow, setModalShow] = React.useState(false);

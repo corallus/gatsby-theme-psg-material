@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from "gatsby";
 import {Page} from "../../components/Page";
-import {Container} from "@material-ui/core";
+import {Container} from "@mui/material";
 import Tickets from "./eventix";
 
 const TicketsPageTemplate = ({data}) => {

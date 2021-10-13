@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import Context from 'gatsby-theme-psg/src/components/Events/Context';
 import {
     Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import Topic from './Topic'
 
 export default ({items}) => {

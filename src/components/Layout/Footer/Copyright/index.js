@@ -1,6 +1,6 @@
 import React from 'react'
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
-import {Link, Typography} from "@material-ui/core";
+import {Link, Typography} from "@mui/material";
 
 
 const Copyright = () => {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {MdPlayCircleOutline} from 'react-icons/md';
-import {Button, Dialog} from "@material-ui/core";
+import {Button, Dialog} from "@mui/material";
 
 export const Video = (props) => {
     const [showText, setShowText] = useState(true);

@@ -4,7 +4,7 @@ import {graphql} from "gatsby";
 import Content from "./category";
 import {Page} from "../../components/Page";
 import {ResponseForm} from "./form";
-import {makeStyles} from "@material-ui/core/styles";
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
     contact: {

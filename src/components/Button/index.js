@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button} from "@material-ui/core";
-import {ArrowForward} from "@material-ui/icons";
+import {Button} from "@mui/material";
+import {ArrowForward} from "@mui/icons-material";
 import useStyles from './style'
 
 export default ({children, ...props}) => {
