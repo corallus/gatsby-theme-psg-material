@@ -1,59 +1,62 @@
-import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import React, {useContext} from "react";
-import Context from "gatsby-theme-psg/src/components/Events/Context";
-import {List, ListItem, ListItemText} from "@mui/material";
 import {Link} from "gatsby";
-import useStyles from "./style";
+import {List, ListItem, ListItemText} from "@mui/material";
+
+import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
+import Context from "gatsby-theme-psg/src/components/Events/Context";
+
+const ExternalLink = ({name, href}) => {
+    return (
+        <li>
+            <ListItem
+                button
+                href={href}
+                rel="noopener noreferrer"
+                target="_blank"
+            >
+                <ListItemText>
+                    {name}
+                </ListItemText>
+            </ListItem>
+        </li>
+    )
+}
 
 const PrimaryMenu = ({handleClose, ...props}) => {
-    const classes = useStyles(props);
     const {menuItems} = useSiteMetadata()
     const {state} = useContext(Context)
     const {event} = state
     return (
-        <List className={classes.list}>
+        <List>
             {menuItems.map((item, i) => (
                 item.external ?
-                    <ListItem
-                        className={classes.listItem}
-                        button
+                    <ExternalLink
                         href={item.link}
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        name={item.name}
                         key={i}
-                    >
-                        <ListItemText className={classes.listItemText}>
-                            {item.name}
-                        </ListItemText>
-                    </ListItem>
+                    />
                     :
-                    <ListItem
-                        className={classes.listItem}
-                        button
-                        component={Link}
-                        to={item.link}
-                        onClick={handleClose}
-                        key={i}
-                    >
-                        <ListItemText className={classes.listItemText}>
-                            {item.name}
-                        </ListItemText>
-                    </ListItem>
+                    <li key={i}>
+                        <ListItem
+                            button
+                            component={Link}
+                            to={item.link}
+                            size={"large"}
+                            onClick={handleClose}
+                            key={i}
+                        >
+                            <ListItemText>
+                                {item.name}
+                            </ListItemText>
+                        </ListItem>
+                    </li>
             ))}
             {event.frontmatter.links && event.frontmatter.links.map((item, i) => (
-                <ListItem
-                    className={classes.listItem}
-                    button
-                    component="a"
+                <ExternalLink
                     href={item.url}
-                    rel="noopener noreferrer"
-                    target="_blank"
+                    name={item.name}
                     key={i}
-                >
-                    <ListItemText className={classes.listItemText}>
-                        {item.name}
-                    </ListItemText>
-                </ListItem>
+                />
             ))}
         </List>
     )

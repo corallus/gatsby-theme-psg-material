@@ -14,7 +14,6 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "gatsby-plugin-material-ui": "^3.0.1",
-    "gatsby-theme-psg": "corallus/gatsby-theme-psg#4.0.5",
-    "react-material-ui-carousel": "^2.2.2"
+    "gatsby-theme-psg": "corallus/gatsby-theme-psg#4.0.5"
   }
 }

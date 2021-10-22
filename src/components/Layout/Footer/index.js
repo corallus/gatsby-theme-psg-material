@@ -1,22 +1,23 @@
 import React from 'react'
-import {Container} from "@mui/material";
-import useStyles from './style'
+import {Container, Typography} from "@mui/material";
+import Copyright from "gatsby-theme-psg/src/components/Copyright";
+import Logo from "gatsby-theme-psg/src/components/Logo";
+
 import Menu from "./Menu";
-import SocialMenu from "../Navbar/SocialMenu";
-import Logo from "./Logo";
-import Copyright from "./Copyright";
+import SocialMenu from "../../SocialMenu";
 
 const Footer = () => {
-    const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <>
             <Container maxWidth={'lg'}>
                 <Logo />
                 <Menu />
                 <SocialMenu />
-                <Copyright />
+                <Typography variant="body2" color="text.secondary">
+                    <Copyright />
+                </Typography>
             </Container>
-        </div>
+        </>
     )
 }
 

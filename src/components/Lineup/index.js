@@ -1,9 +1,10 @@
 import React, {useContext} from 'react'
-import Context from 'gatsby-theme-psg/src/components/Events/Context'
-import Stage from '../Stage'
-import {lineupParams} from "../../params";
 import {Box, Tab, Tabs} from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+
+import Context from 'gatsby-theme-psg/src/components/Events/Context'
+import {lineupParams} from "gatsby-theme-psg/src/params";
+
+import Stage from '../Stage'
 
 const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
@@ -32,13 +33,7 @@ function a11yProps(index) {
     };
 }
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-}));
 const Lineup = ({highlighted = 2, numItems = null}) => {
-    const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -52,9 +47,9 @@ const Lineup = ({highlighted = 2, numItems = null}) => {
     return (
         stages && stages.length > 1 ?
             <>
-                <Tabs className={classes.root} centered value={value} onChange={handleChange} aria-label="simple tabs example">
+                <Tabs centered value={value} onChange={handleChange} aria-label="simple tabs example">
                     {stages.map((stage, index) => (
-                        <Tab label={stage.name} {...lineupParams.stage.buttonProps} key={index} {...a11yProps(index)} />
+                        <Tab label={stage.name} key={index} {...a11yProps(index)} />
                     ))
                     }
                 </Tabs>

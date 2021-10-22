@@ -1,52 +1,22 @@
 import React from 'react'
-import { GatsbyImage } from "gatsby-plugin-image";
-import {graphql} from 'gatsby'
-import {lineupParams} from "../../params";
-import {Card, CardContent, CardMedia, Typography} from "@mui/material";
-import useStyles from "./style";
+import {Card, CardHeader, CardMedia } from "@mui/material";
+import ActImage from "gatsby-theme-psg/src/components/Act/Image";
+import {renderTitle} from "gatsby-theme-psg/src/components/Act/utils";
 
 const Act = ({act}) => {
-    const classes = useStyles();
 
-    const artist = act.artist
     return (
-        <Card className={classes.root}>
+        <Card>
+            <CardHeader
+                title={renderTitle(act)}
+            />
             <CardMedia>
                 {act.announced &&
-                <GatsbyImage
-                    image={act.image?.childImageSharp.gatsbyImageData || artist.frontmatter.image.childImageSharp.gatsbyImageData}
-                    alt={artist.frontmatter.title}
-                />
+                    <ActImage act={act} />
                 }
             </CardMedia>
-            <CardContent className={classes.content}>
-                <Typography variant="h5" component="h3">
-                    {act.announced
-                        ?
-                        artist.frontmatter.title
-                        :
-                        lineupParams.artist.emptyText
-                    }
-                </Typography>
-            </CardContent>
         </Card>
     );
 }
-
-export const query = graphql`
-    fragment Artist on MarkdownRemark {
-        id
-        html
-        frontmatter {
-            title
-            templateKey
-            image {
-                childImageSharp {
-                    gatsbyImageData(aspectRatio: 1.33, layout: FULL_WIDTH)
-                }
-            }
-        }
-    }
-`
 
 export default Act

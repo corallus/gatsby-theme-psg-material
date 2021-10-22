@@ -1,59 +1,61 @@
 import React from 'react'
-import {Helmet} from 'react-helmet'
+import { styled } from '@mui/material/styles';
 import Footer from './Footer/index'
 import Navbar from './Navbar/index'
-import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import CookieConsent from "react-cookie-consent"
 import {globalHistory} from "@reach/router"
 import NewsFlash from "../NewsFlash";
 import EventMeta from "gatsby-theme-psg/src/components/EventMeta";
-import makeStyles from "@mui/styles/makeStyles";
+import {Box} from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        textAlign: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh'
+const PREFIX = 'Layout';
+
+const classes = {
+    root: `${PREFIX}-root`,
+    appBarSpacer: `${PREFIX}-appBarSpacer`,
+    footer: `${PREFIX}-footer`
+};
+
+const Root = styled('div')((
+    {
+        theme
+    }
+) => ({
+    [`&.${classes.root}`]: {
     },
-    appBarSpacer: theme.mixins.toolbar,
-    footer: {
-        marginTop: 'auto',
+
+    [`& .${classes.appBarSpacer}`]: theme.mixins.toolbar,
+
+    [`& .${classes.footer}`]: {
     }
 }));
 
-const Layout = ({title: pageTitle = null, description, template = null, children}) => {
-    const classes = useStyles();
-    const {title} = useSiteMetadata()
+const Layout = ({children}) => {
+
     const isHome = globalHistory.location.pathname === '/'
 
     return (
-        <div className={classes.root}>
-            <Helmet
-                bodyAttributes={{
-                    class: (template ? template : '')
-                }}
-                htmlAttributes={{
-                    lang: 'nl',
-                }}
-            >
-                <title>{pageTitle}</title>
-                <meta name="description" content={description}/>
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-                />
-                <meta property="og:title" content={title}/>
-                <meta property="og:url" content="/"/>
-            </Helmet>
+        <Root
+            className={classes.root}
+            sx={{
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh'
+            }}
+        >
             <EventMeta />
             <Navbar isHome={isHome}/>
             <div className={classes.appBarSpacer} />
             {children}
             <NewsFlash />
-            <footer className={classes.footer}>
+            <Box component={'footer'}
+                sx={{
+                    marginTop: 'auto',
+                }}
+            >
                 <Footer />
-            </footer>
+            </Box>
             <CookieConsent
                 enableDeclineButton
                 declineButtonText="Weigeren"
@@ -68,8 +70,8 @@ const Layout = ({title: pageTitle = null, description, template = null, children
             >
                 <small>Wij gebruiken cookies volgens onze <a href="/cookie-policy.pdf">Cookie Policy</a></small>
             </CookieConsent>
-        </div>
-    )
+        </Root>
+    );
 }
 
 export default Layout

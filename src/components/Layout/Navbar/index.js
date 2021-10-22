@@ -1,24 +1,49 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import {Link} from 'gatsby';
-import clsx from 'clsx';
 import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MaterialButton from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import {Box, Hidden} from "@mui/material";
-import Logo from "./Logo";
-import EventToggler from "./Toggler";
+import Logo from "gatsby-theme-psg/src/components/Logo";
+import EventToggler from "./EventSwitcher";
 import {Close} from "@mui/icons-material";
 import PrimaryMenu from "./Menu";
-import SocialMenu from "./SocialMenu";
-import Button from "./Button"
-import useStyles from './style'
+import TicketButton from "./TicketButton"
+import {navbarParams} from "gatsby-theme-psg/src/params";
+import SocialMenu from "../../SocialMenu";
+import MenuButton from "./MenuButton";
+import AppBar from "./AppBar";
+import CloseButton from "./CloseButton";
+
+const PREFIX = 'navbar';
+
+export const drawerWidth = 240;
+
+const classes = {
+    toolbar: `${PREFIX}-toolbar`,
+    menuAndEventToggler: `${PREFIX}-menuAndEventToggler`,
+};
+
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled('div')(({theme}) => ({
+    [`& .${classes.toolbar}`]: {
+        justifyContent: 'space-between'
+    },
+
+    [`& .${classes.menuAndEventToggler}`]: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,
+    },
+
+}));
 
 export default function Index() {
-    const classes = useStyles();
+
     const {title} = useSiteMetadata()
 
     const [open, setOpen] = React.useState(false);
@@ -29,62 +54,94 @@ export default function Index() {
         setOpen(false);
     };
 
-    return <>
-        <AppBar position="fixed" className={classes.appBar}>
-            <Toolbar
-                className={classes.toolbar}
+    return (
+        <Root>
+            <AppBar
+                position="fixed"
+                sx={{
+                    zIndex: theme => theme.zIndex.drawer - 1,
+                    transition: theme => theme.transitions.create(['width', 'margin'], {
+                        easing: theme.transitions.easing.sharp,
+                        duration: theme.transitions.duration.leavingScreen,
+                    }),
+                }}
             >
-                <div className={classes.toolbarIcon}>
-                    <MaterialButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-                        startIcon={<MenuIcon fontSize={'large'}/>}
+                <Toolbar
+                    className={classes.toolbar}
+                >
+                    <div className={classes.menuAndEventToggler}>
+                        <MenuButton
+                            color="inherit"
+                            aria-label="open menu"
+                            onClick={handleDrawerOpen}
+                            sx={{
+                                ...(open ? {display: 'none'} : {})
+                            }}
+                            startIcon={<MenuIcon color={'inherit'}/>}
+                        >
+                            <Box
+                                component={'span'}
+                                sx={{ display: { xs: 'none', md: 'block' } }}
+                            >
+                                menu
+                            </Box>
+                        </MenuButton>
+                        <Box component={EventToggler} sx={{ display: { xs: 'none', md: 'block' } }}/>
+                    </div>
+                    <Box component={'div'}
+                         sx={{
+                             position: 'absolute',
+                             left: '50%',
+                             transform: 'translateX(-50%)'
+                         }}
                     >
-                        <Hidden mdDown implementation="css">
-                        menu
-                        </Hidden>
-                    </MaterialButton>
-                    <Hidden mdDown implementation="css">
-                        <EventToggler/>
-                    </Hidden>
-                </div>
-                <div className={classes.title}>
-                    <Logo title={title}/>
-                </div>
-                <Box className={classes.secondaryMenu}>
-                    <SocialMenu />
-                    <Box display={{ xs: 'none', sm: 'none', md: 'inline-block' }}>
-                        <Button component={Link} to={'/tickets'} variant="outlined"/>
+                        <Logo title={title}/>
                     </Box>
-                </Box>
-            </Toolbar>
-        </AppBar>
-        <Drawer
-            className={classes.drawer}
-            variant="temporary"
-            open={open}
-            onClose={handleDrawerClose}
-            classes={{
-                paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-                keepMounted: true, // Better open performance on mobile.
-            }}
-        >
-            <div className={classes.toolbarIcon}>
-                <EventToggler/>
-                <IconButton onClick={handleDrawerClose} size="large">
-                    <Close />
-                </IconButton>
-            </div>
-            <div className={classes.toolbar} />
-            <PrimaryMenu handleClose={handleDrawerClose} />
-            <Hidden mdUp implementation="css">
-                <SocialMenu />
-            </Hidden>
-        </Drawer>
-    </>;
+                    <Box className={classes.secondaryMenu}>
+                        <SocialMenu />
+                        <TicketButton
+                            component={Link}
+                            to={'/tickets'}
+                            sx={{display: {xs: 'none', sm: 'none', md: 'inline-block' }}}
+                            {...navbarParams.ticketButton.props}
+                        >
+                            {navbarParams.ticketButton.text}
+                        </TicketButton>
+                    </Box>
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                variant="temporary"
+                open={open}
+                onClose={handleDrawerClose}
+                sx={{
+                    '& .MuiDrawer-paper': {
+                        position: 'relative',
+                        whiteSpace: 'nowrap',
+                        width: {xs: '100%', sm: drawerWidth},
+                        transition: theme => theme.transitions.create('width', {
+                            easing: theme.transitions.easing.sharp,
+                            duration: theme.transitions.duration.enteringScreen,
+                        }),
+                    }
+                }}
+                ModalProps={{
+                    keepMounted: true, // Better open performance on mobile.
+                }}
+            >
+                <div className={classes.menuAndEventToggler}>
+                    <EventToggler/>
+                    <CloseButton onClick={handleDrawerClose} size="large">
+                        <Close color={'inherit'} />
+                    </CloseButton>
+                </div>
+                <div className={classes.toolbar} />
+                <PrimaryMenu handleClose={handleDrawerClose} />
+                <Hidden mdUp implementation="css">
+                    <SocialMenu />
+                </Hidden>
+            </Drawer>
+        </Root>
+    );
 }
 
