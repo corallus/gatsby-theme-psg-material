@@ -30,7 +30,7 @@ const Layout = ({children}) => {
     const isHome = globalHistory.location.pathname === '/'
 
     return (
-        <Box
+        <Root
             sx={{
                 textAlign: 'center',
                 display: 'flex',
@@ -64,7 +64,7 @@ const Layout = ({children}) => {
             >
                 <small>Wij gebruiken cookies volgens onze <a href={cookiePolicy}>Cookie Policy</a></small>
             </CookieConsent>
-        </Box>
+        </Root>
     );
 }
 
