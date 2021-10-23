@@ -12,7 +12,7 @@ import {Close} from "@mui/icons-material";
 import PrimaryMenu from "./Menu";
 import TicketButton from "./TicketButton"
 import {navbarParams} from "gatsby-theme-psg/src/params";
-import SocialMenu from "../../SocialMenu";
+import SocialMenu from "../../Social/SocialMenu";
 import MenuButton from "./MenuButton";
 import AppBar from "./AppBar";
 import CloseButton from "./CloseButton";
@@ -73,6 +73,7 @@ export default function Index() {
                         <MenuButton
                             color="inherit"
                             aria-label="open menu"
+                            size={'large'}
                             onClick={handleDrawerOpen}
                             sx={{
                                 ...(open ? {display: 'none'} : {})
@@ -98,12 +99,10 @@ export default function Index() {
                         <Logo title={title}/>
                     </Box>
                     <Box className={classes.secondaryMenu}>
-                        <SocialMenu />
+                        <SocialMenu size={'large'} />
                         <TicketButton
                             component={Link}
                             to={'/tickets'}
-                            sx={{display: {xs: 'none', sm: 'none', md: 'inline-block' }}}
-                            {...navbarParams.ticketButton.props}
                         >
                             {navbarParams.ticketButton.text}
                         </TicketButton>

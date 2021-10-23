@@ -4,7 +4,7 @@ import Copyright from "gatsby-theme-psg/src/components/Copyright";
 import Logo from "gatsby-theme-psg/src/components/Logo";
 
 import Menu from "./Menu";
-import SocialMenu from "../../SocialMenu";
+import SocialMenu from "../../Social/SocialMenu";
 
 const Footer = () => {
     return (

@@ -1,25 +1,31 @@
 import React from 'react'
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import SocialButton from "./SocialButton";
-import {Facebook, Instagram} from "@mui/icons-material";
+import {FacebookIcon, InstagramIcon} from "./Icons";
 
-const SocialMenu = () => {
+const SocialMenu = (props) => {
     const {social} = useSiteMetadata()
     return <>
         {social.facebook &&
         <SocialButton
             aria-label="facebook"
             href={social.facebook}
+            rel="noopener noreferrer"
+            target="_blank"
+            {...props}
         >
-            <Facebook size='inherit' color={'inherit'} />
+            <FacebookIcon fontSize='large' color={'inherit'} />
         </SocialButton>
         }
         {social.instagram &&
         <SocialButton
             href={social.instagram}
             aria-label="facebook"
+            rel="noopener noreferrer"
+            target="_blank"
+            {...props}
         >
-            <Instagram size={'inherit'} color={'inherit'} />
+            <InstagramIcon fontSize={'large'} color={'inherit'} />
         </SocialButton>
         }
     </>

@@ -1,13 +1,14 @@
 import React, {useContext} from "react";
 import {Link} from "gatsby";
-import {List, ListItem, ListItemText} from "@mui/material";
+import {List, ListItem} from "@mui/material";
 
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import Context from "gatsby-theme-psg/src/components/Events/Context";
 
+import ListItemText from "./ListItemText";
+
 const ExternalLink = ({name, href}) => {
     return (
-        <li>
             <ListItem
                 button
                 href={href}
@@ -18,7 +19,6 @@ const ExternalLink = ({name, href}) => {
                     {name}
                 </ListItemText>
             </ListItem>
-        </li>
     )
 }
 
@@ -27,7 +27,7 @@ const PrimaryMenu = ({handleClose, ...props}) => {
     const {state} = useContext(Context)
     const {event} = state
     return (
-        <List>
+        <List component={'nav'}>
             {menuItems.map((item, i) => (
                 item.external ?
                     <ExternalLink
@@ -36,12 +36,10 @@ const PrimaryMenu = ({handleClose, ...props}) => {
                         key={i}
                     />
                     :
-                    <li key={i}>
                         <ListItem
                             button
                             component={Link}
                             to={item.link}
-                            size={"large"}
                             onClick={handleClose}
                             key={i}
                         >
@@ -49,7 +47,6 @@ const PrimaryMenu = ({handleClose, ...props}) => {
                                 {item.name}
                             </ListItemText>
                         </ListItem>
-                    </li>
             ))}
             {event.frontmatter.links && event.frontmatter.links.map((item, i) => (
                 <ExternalLink

@@ -1,13 +1,17 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 
-import {navbarParams} from "gatsby-theme-psg/src/params";
 
-
-const TicketButton = () => {
+const TicketButton = (props) => {
     return (
-        <Button>
-            {navbarParams.ticketButton.text}
+        <Button
+            {...props}
+            size={'large'}
+            sx={{
+                display: {xs: 'none', sm: 'none', md: 'inline-block' }
+            }}
+        >
+            {props.children}
         </Button>
     )
 }
