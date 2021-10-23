@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-psg-material",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "main": "index.js",
   "author": "Vincent van Bergen",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "@mui/styles": "^5.0.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby-plugin-material-ui": "^4.0.3",
     "gatsby-theme-psg": "corallus/gatsby-theme-psg#5.0.1"
   }
 }
