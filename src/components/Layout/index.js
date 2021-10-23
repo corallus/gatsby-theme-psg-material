@@ -1,19 +1,20 @@
 import React from 'react'
+import {globalHistory} from "@reach/router"
 import { styled } from '@mui/material/styles';
+import {Box} from "@mui/material";
+import CookieConsent from "react-cookie-consent"
+
+import EventMeta from "gatsby-theme-psg/src/components/EventMeta";
+
+import NewsFlash from "../NewsFlash";
 import Footer from './Footer/index'
 import Navbar from './Navbar/index'
-import CookieConsent from "react-cookie-consent"
-import {globalHistory} from "@reach/router"
-import NewsFlash from "../NewsFlash";
-import EventMeta from "gatsby-theme-psg/src/components/EventMeta";
-import {Box} from "@mui/material";
+import cookiePolicy from 'gatsby-theme-psg/src/assets/cookie-policy.pdf'
 
 const PREFIX = 'Layout';
 
 const classes = {
-    root: `${PREFIX}-root`,
     appBarSpacer: `${PREFIX}-appBarSpacer`,
-    footer: `${PREFIX}-footer`
 };
 
 const Root = styled('div')((
@@ -21,13 +22,7 @@ const Root = styled('div')((
         theme
     }
 ) => ({
-    [`&.${classes.root}`]: {
-    },
-
     [`& .${classes.appBarSpacer}`]: theme.mixins.toolbar,
-
-    [`& .${classes.footer}`]: {
-    }
 }));
 
 const Layout = ({children}) => {
@@ -35,8 +30,7 @@ const Layout = ({children}) => {
     const isHome = globalHistory.location.pathname === '/'
 
     return (
-        <Root
-            className={classes.root}
+        <Box
             sx={{
                 textAlign: 'center',
                 display: 'flex',
@@ -68,9 +62,9 @@ const Layout = ({children}) => {
                 style={{background: "#2B373B", textAlign: "right"}}
                 expires={150}
             >
-                <small>Wij gebruiken cookies volgens onze <a href="/cookie-policy.pdf">Cookie Policy</a></small>
+                <small>Wij gebruiken cookies volgens onze <a href={cookiePolicy}>Cookie Policy</a></small>
             </CookieConsent>
-        </Root>
+        </Box>
     );
 }
 

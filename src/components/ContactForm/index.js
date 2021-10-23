@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText } from "@mui/material";
 
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
+import privacyStatement from 'gatsby-theme-psg/src/assets/privacy-statement.pdf'
 
 import FieldWrapper from './FieldWrapper'
 
@@ -98,7 +99,7 @@ export const ResponseForm = () => {
                                         name="privacy"
                                     />
                                 }
-                                label={<>Ik ga akkoord met de <a href="/static/privacy-statement.pdf" rel="noopener noreferrer" target="_blank"> privacy voorwaarden</a></>}
+                                label={<>Ik ga akkoord met de <a href={privacyStatement}> privacy voorwaarden</a></>}
                             />
                             {(errors.privacy && touched.privacy) &&
                             <FormHelperText>
