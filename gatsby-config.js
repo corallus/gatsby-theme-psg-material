@@ -6,8 +6,7 @@ module.exports = themeOptions => {
         options: {
           ...themeOptions
         },
-      },
-      'gatsby-plugin-material-ui'
+      }
     ]
   }
 }

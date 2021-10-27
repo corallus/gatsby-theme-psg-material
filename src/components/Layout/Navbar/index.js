@@ -98,7 +98,11 @@ export default function Index() {
                     >
                         <Logo title={title}/>
                     </Box>
-                    <Box className={classes.secondaryMenu}>
+                    <Box
+                        sx={{
+                            display: {xs: 'none', sm: 'none', md: 'inline-block' }
+                        }}
+                    >
                         <SocialMenu size={'large'} />
                         <TicketButton
                             component={Link}
@@ -136,9 +140,13 @@ export default function Index() {
                 </div>
                 <div className={classes.toolbar} />
                 <PrimaryMenu handleClose={handleDrawerClose} />
-                <Hidden mdUp implementation="css">
+                <Box
+                    sx={{
+                        display: {xs: 'inline-block', md: 'none' }
+                    }}
+                >
                     <SocialMenu />
-                </Hidden>
+                </Box>
             </Drawer>
         </Root>
     );

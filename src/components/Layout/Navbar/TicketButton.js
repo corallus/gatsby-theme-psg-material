@@ -7,9 +7,6 @@ const TicketButton = (props) => {
         <Button
             {...props}
             size={'large'}
-            sx={{
-                display: {xs: 'none', sm: 'none', md: 'inline-block' }
-            }}
         >
             {props.children}
         </Button>
