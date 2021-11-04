@@ -1,10 +1,12 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
+import {Helmet} from "react-helmet";
+
+import {EventProvider} from "gatsby-theme-psg/src/components/Events/Context";
 
 import Viewport from './viewport';
-import {EventProvider} from "gatsby-theme-psg/src/components/Events/Context";
-import {Helmet} from "react-helmet";
+import 'App.css'
 
 export default function TopLayout({ children, theme }) {
     return <>
