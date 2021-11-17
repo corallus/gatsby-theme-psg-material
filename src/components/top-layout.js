@@ -6,7 +6,6 @@ import {Helmet} from "react-helmet";
 import {EventProvider} from "gatsby-theme-psg/src/components/Events/Context";
 
 import Viewport from './viewport';
-import '../App.css'
 
 export default function TopLayout({ children, theme }) {
     return <>
