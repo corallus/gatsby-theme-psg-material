@@ -11,8 +11,6 @@ const Aftermovie = ({children, ...props}) => {
 
     const aftermovie = state.event.frontmatter.aftermovie
 
-    console.log(aftermovie)
-
     return (
         aftermovie &&
         <>

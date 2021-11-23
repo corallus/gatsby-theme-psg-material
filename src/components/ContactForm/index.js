@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import Recaptcha from "react-recaptcha"
 import axios from 'axios'
 import { Helmet } from 'react-helmet';
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText } from "@mui/material";
+import {Box, Button, Checkbox, FormControl, FormControlLabel, FormHelperText, Link} from "@mui/material";
 
 import useSiteMetadata from "gatsby-theme-psg/src/components/SiteMetadata";
 import privacyStatement from 'gatsby-theme-psg/src/assets/privacy-statement.pdf'
@@ -73,7 +73,9 @@ export const ResponseForm = () => {
                     isSubmitting,
                     handleSubmit,
                     setFieldValue,
-                    status
+                    status,
+                    handleChange,
+                    values
                 } = props;
                 return (
                     <form onSubmit={handleSubmit}>
@@ -96,10 +98,12 @@ export const ResponseForm = () => {
                                         component={Checkbox}
                                         type={"checkbox"}
                                         id={"privacy"}
+                                        onChange={handleChange}
                                         name="privacy"
+                                        required
                                     />
                                 }
-                                label={<>Ik ga akkoord met de <a href={privacyStatement}> privacy voorwaarden</a></>}
+                                label={<>Ik ga akkoord met de <Link href={privacyStatement}> privacy voorwaarden</Link></>}
                             />
                             {(errors.privacy && touched.privacy) &&
                             <FormHelperText>
@@ -114,7 +118,6 @@ export const ResponseForm = () => {
                                 render="explicit"
                                 theme="light"
                                 verifyCallback={(response) => { setFieldValue("recaptcha", response); }}
-                                onloadCallback={() => { console.log("done loading!"); }}
                             />
                         </FormControl>
 
