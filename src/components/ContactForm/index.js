@@ -30,7 +30,6 @@ export const ResponseForm = () => {
                 }
             }}
             onSubmit={(values, { setSubmitting, setStatus, resetForm }) => {
-                console.log(values)
                 const httpOptions = {
                     headers: {
                         'Content-Type': 'application/json',
