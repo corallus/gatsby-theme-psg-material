@@ -30,6 +30,7 @@ export const ResponseForm = () => {
                 }
             }}
             onSubmit={(values, { setSubmitting, setStatus, resetForm }) => {
+                console.log(values)
                 const httpOptions = {
                     headers: {
                         'Content-Type': 'application/json',
@@ -75,7 +76,6 @@ export const ResponseForm = () => {
                     setFieldValue,
                     status,
                     handleChange,
-                    values
                 } = props;
                 return (
                     <form onSubmit={handleSubmit}>
@@ -118,6 +118,7 @@ export const ResponseForm = () => {
                                 render="explicit"
                                 theme="light"
                                 verifyCallback={(response) => { setFieldValue("recaptcha", response); }}
+                                onloadCallback={() => { console.log("done loading!"); }}
                             />
                         </FormControl>
 
