@@ -1,8 +1,8 @@
 import React from "react";
-import {Card, CardActionArea, CardHeader, CardMedia, Typography} from "@mui/material";
+import {Card, CardActionArea, CardHeader, CardMedia} from "@mui/material";
 import {GatsbyImage} from "gatsby-plugin-image";
 
-const Gallery = ({data}) => {
+const GalleryItem = ({data}) => {
     return (
         <Card>
             <CardActionArea
@@ -22,4 +22,4 @@ const Gallery = ({data}) => {
         </Card>
     )
 }
-export default Gallery
+export default GalleryItem

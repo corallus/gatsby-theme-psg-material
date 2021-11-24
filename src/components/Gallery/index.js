@@ -15,9 +15,17 @@ const Gallery = ({data}) => {
         <>
             {[...Array(pages)].map((e, i) =>
                 //<Component key={i} items={items.slice(i*pageSize, (i+1) * (pageSize))} />
-                <Grid direction={i%2===0 ? 'row': 'row-reverse'} container spacing={3} key={i}>
+                <Grid
+                    direction={i%2===0 ? 'row': 'row-reverse'}
+                    container
+                    spacing={3}
+                    key={i}
+                    sx={{
+                        marginBottom: 3
+                    }}
+                >
                     <Grid xs={12} md={8} item>
-                        <Gallery
+                        <GalleryItem
                             data={galleries[i*pageSize]}
                         />
                     </Grid>
