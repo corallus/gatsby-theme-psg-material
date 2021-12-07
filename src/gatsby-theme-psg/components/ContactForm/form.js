@@ -7,7 +7,7 @@ import privacyStatement from 'gatsby-theme-psg/src/assets/privacy-statement.pdf'
 import FieldWrapper from './FieldWrapper'
 import RenderCaptcha from "gatsby-theme-psg/src/components/ContactForm/recaptcha";
 
-export const ResponseForm = (props) => {
+const ResponseForm = (props) => {
     const {
         touched,
         errors,
@@ -74,3 +74,5 @@ export const ResponseForm = (props) => {
         </form>
     )
 }
+
+export default ResponseForm
